@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA707CCD2BF3D8AA004E81A9 /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA707CCC2BF3D8AA004E81A9 /* StyleGuide.swift */; };
+		DA707CCF2BF3F429004E81A9 /* Objective.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA707CCE2BF3F429004E81A9 /* Objective.swift */; };
 		DA8F0F802BEAAF860036F2DB /* PaceIdealApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F0F7F2BEAAF860036F2DB /* PaceIdealApp.swift */; };
 		DA8F0F822BEAAF860036F2DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F0F812BEAAF860036F2DB /* ContentView.swift */; };
 		DA8F0F842BEAAF880036F2DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8F0F832BEAAF880036F2DB /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA707CCC2BF3D8AA004E81A9 /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
+		DA707CCE2BF3F429004E81A9 /* Objective.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objective.swift; sourceTree = "<group>"; };
 		DA8F0F7C2BEAAF860036F2DB /* PaceIdeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaceIdeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8F0F7F2BEAAF860036F2DB /* PaceIdealApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaceIdealApp.swift; sourceTree = "<group>"; };
 		DA8F0F812BEAAF860036F2DB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 			children = (
 				DA8F0F7F2BEAAF860036F2DB /* PaceIdealApp.swift */,
 				DA8F0F812BEAAF860036F2DB /* ContentView.swift */,
+				DA707CCC2BF3D8AA004E81A9 /* StyleGuide.swift */,
+				DA707CCE2BF3F429004E81A9 /* Objective.swift */,
 				DA8F0F832BEAAF880036F2DB /* Assets.xcassets */,
 				DA8F0F852BEAAF880036F2DB /* Preview Content */,
 			);
@@ -138,7 +144,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA8F0F822BEAAF860036F2DB /* ContentView.swift in Sources */,
+				DA707CCF2BF3F429004E81A9 /* Objective.swift in Sources */,
 				DA8F0F802BEAAF860036F2DB /* PaceIdealApp.swift in Sources */,
+				DA707CCD2BF3D8AA004E81A9 /* StyleGuide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
