@@ -7,8 +7,14 @@
 
 import Foundation
 
-enum Objective: String, CaseIterable {
-    case maratona = "Maratona"
-    case lazer = "Lazer"
-    case saude = "Saúde"
+//enum Objective: String, CaseIterable {
+//    case maratona = "Maratona"
+//    case lazer = "Lazer"
+//    case saude = "Saúde"
+//}
+
+//direction of the dropdown menu
+enum DropDownPickerState {
+    case bottom
+    case top
 }
