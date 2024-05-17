@@ -22,13 +22,17 @@ struct CustomTextField: View {
                 
                 Text(title)
                     .foregroundStyle(.button)
+                    .font(.text)
                 TextField(
                     placeHolder,
                     value: $value,
-                    format: .number
+                    format: .number,
+                    prompt: Text(placeHolder)
+                        .foregroundColor(.textDropDown)
+                        .font(.textField)
                 )
                 .padding(.vertical, 8)
-                .padding(.leading, 6)
+                .padding(.leading, 10)
                 .background(
                     Color.textFieldBackground
                         .clipShape(

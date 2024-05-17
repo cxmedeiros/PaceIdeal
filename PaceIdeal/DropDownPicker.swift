@@ -13,7 +13,6 @@ struct DropDownPicker: View {
     @Binding var selection: String?
     var state: DropDownPickerState = .bottom
     var options: [String]
-    var maxWidth: CGFloat = 180
     
     @State var showDropdown = false
     let placeHolder: String
@@ -22,11 +21,11 @@ struct DropDownPicker: View {
     @State var zindex = 1000.0
     
     var body: some View {
+        
         GeometryReader {
             let size = $0.size
             
-            VStack(spacing: 0) {
-                
+            VStack(alignment: .leading) {
                 
                 if state == .top && showDropdown {
                     OptionsView()
@@ -34,18 +33,19 @@ struct DropDownPicker: View {
                 
                 HStack {
                     Text(selection == nil ? placeHolder : selection!)
-                        .foregroundColor(selection != nil ? .text : .text)
+                        .foregroundColor(selection != nil ? .textSelect : .textDropDown)
+                        .font(.textField)
                     
                     
                     Spacer(minLength: 0)
                     
                     Image(systemName: state == .top ? "chevron.up" : "chevron.down")
                         .font(.title3)
-                        .foregroundColor(.chevron)
+                        .foregroundColor(.chevron.opacity(0.4))
                         .rotationEffect(.degrees((showDropdown ? -180 : 0)))
                 }
-                .padding(.horizontal, 15)
-                .frame(width: 292, height: 40)
+                .padding(.horizontal, 10)
+                .frame(width: 292, height: 40) // tamanho do dropdown aparente inicialmente
                 .background(.textFieldBackground)
                 .contentShape(.rect)
                 .onTapGesture {
@@ -62,34 +62,34 @@ struct DropDownPicker: View {
                 }
             }
             .clipped()
-            .background(.dropdown)
+            .background(.dropDown)
             .cornerRadius(7)
-            .overlay {
-                RoundedRectangle(cornerRadius: 7)
-                    .stroke(.textFieldBackground)
-            }
             .frame(height: size.height, alignment: state == .top ? .bottom : .top)
             
         }
-        .frame(width: maxWidth, height: 50)
+        .frame(width: 292, height: 40) // tamanho do frame dos textos dentro do dropdown
         .zIndex(zindex)
     }
     
     
     func OptionsView() -> some View {
-        VStack(spacing: 0) {
+        
+        VStack(alignment: .leading, spacing: 0) {
             ForEach(options, id: \.self) { option in
-                HStack {
+                
+                if option != " " {
+                    Rectangle().frame(width: 287, height: 1)
+                        .foregroundColor(.textSelect)
+                        
+                }
+                HStack() {
                     Text(option)
-                    Spacer()
-                    Image(systemName: "checkmark")
-                        .opacity(selection == option ? 1 : 0)
                 }
                 .foregroundStyle(selection == option ? Color.button : Color.white)
                 .animation(.none, value: selection)
                 .frame(height: 40)
-                .contentShape(.rect)
-                .padding(.horizontal, 15)
+                .frame(maxWidth: .infinity)
+                .padding(.leading, 6) // ajusta o texto dentro do dropdown
                 .onTapGesture {
                     withAnimation(.snappy) {
                         selection = option
