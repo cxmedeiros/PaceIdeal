@@ -58,7 +58,8 @@ struct PopUpResult: View {
                         .foregroundStyle(.white)
                     
                     Image(image)
-                        .padding(10)
+                        .padding(.top, 30)
+                        .padding(.bottom, 30)
                     
                     Text(message2)
                         .font(.system(size: 24))
@@ -112,11 +113,14 @@ struct PopUpResult: View {
 }
 
 
-//#Preview {
-//    PopUpResult(message: "Seu Pace Ideal é:",
-//        message1:"6'30''",
-//        message2:"Vamos melhorar?", 
-//        isActive2: .constant(true),
-//                image: .veryTiredRunner
-//    )
-//}
+#Preview {
+    PopUpResult(message: "Seu Pace Ideal é:",
+        message1:"6'30''",
+        message2:"""
+O sedentarismo está 
+              na porta!
+""",
+        isActive2: .constant(true),
+                image: .fastRunner
+    )
+}

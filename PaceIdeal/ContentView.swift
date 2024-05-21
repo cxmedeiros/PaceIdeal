@@ -93,7 +93,7 @@ struct ContentView: View {
                         }
                         
                         VStack (alignment: .leading, spacing: 5) {
-                            Text("Sua rotina de Exercicios aeróbicos é de:")
+                            Text("Sua rotina de exercicios aeróbicos é de:")
                                 .foregroundStyle(.button)
                                 .font(.text)
                             
@@ -136,7 +136,7 @@ struct ContentView: View {
             PopUpResult(
                 message: "Seu Pace Ideal é:",
                 message1: stringPace(),
-                message2:"Vamos melhorar?", 
+                message2: processSentence(),
                 isActive2: $isActive2,
                 image: processImage()
             )
@@ -176,6 +176,26 @@ struct ContentView: View {
             }
         } else {
             return .veryTiredRunner
+        }
+    }
+    
+    func processSentence() -> String {
+        if let pace = result {
+            if pace < 6.0 {
+                return """
+                UHUU, quase o Relâmpago Mcqueen!
+         """
+            } else if pace >= 6.0 && pace < 8.0 {
+                return """
+Bom... Mas da para melhorar!
+"""            } else {
+                return """
+O sedentarismo está
+              na porta!
+"""
+            }
+        } else {
+            return " "
         }
     }
 }
