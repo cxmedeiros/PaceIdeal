@@ -17,10 +17,9 @@ enum DropDownPickerState {
 
 struct DropDownPicker: View {
     
-    @Binding var selection: String?
+    @Binding var selection: Goal?
     var state: DropDownPickerState = .bottom
-    var options: [Goal]
-    
+
     @State var showDropdown = false
     let placeHolder: String
     
@@ -39,7 +38,7 @@ struct DropDownPicker: View {
                 }
                 
                 HStack {
-                    Text(selection == nil ? placeHolder : selection!)
+                    Text(selection == nil ? placeHolder : selection!.rawValue)
                         .foregroundColor(selection != nil ? .textSelect : .textDropDown)
                         .font(.textField)
                     
@@ -82,18 +81,18 @@ struct DropDownPicker: View {
     func OptionsView() -> some View {
         
         VStack(alignment: .leading, spacing: 0) {
-            ForEach(options, id: \.self) { option in
+            ForEach(Goal.allCases, id: \.self) { option in
                 HStack() {
                     Text(option.rawValue)
                 }
-                .foregroundStyle(selection == option.rawValue ? .button : .white)
+                .foregroundStyle(selection?.rawValue == option.rawValue ? .button : .white)
                 .animation(.none, value: selection)
                 .frame(height: 40)
                 .frame(maxWidth: .infinity)
                 .padding(.leading, 6) // ajusta o texto dentro do dropdown
                 .onTapGesture {
                     withAnimation(.snappy) {
-                        selection = option.rawValue
+                        selection = option
                         showDropdown.toggle()
                     }
                 }
@@ -103,3 +102,4 @@ struct DropDownPicker: View {
         .zIndex(1)
     }
 }
+

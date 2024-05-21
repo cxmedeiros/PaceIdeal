@@ -11,14 +11,16 @@ struct ContentView: View {
     
     @State var isActive: Bool = false
     @State var isActive2: Bool = false
-    @State var selection1: String? = nil
-    @State var selection2: String? = nil
+    @State var selection1: Goal? = nil
+    @State var selection2: Routine? = nil
     @State var age: Int? = nil
     @State var weight: Int? = nil
     @State var height: Int? = nil
     @State var result: Float?
-    
-    
+    @State var failedInput = false
+    let titleFillFields = "Preencha todos os campos para calcular seu pace!"
+    @State var negativeInput = false
+    let titleNegativeFields = "Não pode possuir campos com valores negativos!"
     
     var body: some View {
         
@@ -88,7 +90,7 @@ struct ContentView: View {
                             DropDownPicker(
                                 selection: $selection1,
                                 state: .top,
-                                options: Goal.allCases, placeHolder: "Objetivo"
+                                placeHolder: "Objetivo"
                             )
                         }
                         
@@ -100,7 +102,6 @@ struct ContentView: View {
                             DropDownPickerRoutine(
                                 selection: $selection2,
                                 state: .top,
-                                options: Routine.allCases,
                                 placeHolder: "Rotina"
                             )
                         }
@@ -142,17 +143,46 @@ struct ContentView: View {
             )
             
         }
+        .alert(titleFillFields, isPresented: $failedInput){
+            Button("OK", role: .cancel, action: {})
+        }
+        .alert(titleNegativeFields, isPresented: $negativeInput) {
+            Button("OK", role: .cancel, action: {})
+        }
         .ignoresSafeArea()
     }
     
     func processPace() {
         
-        let userParams = UserParameters (age: age ?? 0, weight: weight ?? 0, height: height ?? 0, goal: Goal(rawValue: selection1 ?? " ") ?? .saude, routine: Routine(rawValue: selection2 ?? " ") ?? .ruim)
+        guard
+            let age: Int,
+            let weight: Int,
+            let height: Int,
+            let selection1: Goal,
+            let selection2 : Routine
+                
+        else {
+            print("Preencha os campos de entrada")
+            failedInput = true
+            return
+        }
+        
+        guard age > 0 && weight > 0 && height > 0 else {
+            print("Prencha os campos com apenas números positivos!")
+            negativeInput = true
+            return
+        }
+
+        
+        let userParams = UserParameters (age: age, weight: weight, height: height, goal: selection1, routine: selection2)
+        
+
         
         self.result = userParams.calculateResult()
         
         isActive2 = true
     }
+    
     
     func stringPace() -> String {
         if let pace = result {
