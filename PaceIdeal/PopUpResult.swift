@@ -51,6 +51,7 @@ struct PopUpResult: View {
                         .font(.system(size: 28))
                         .bold()
                         .foregroundStyle(.white)
+                        .padding(.bottom, 10)
                     
                     Text(message1)
                         .font(.system(size: 40))
@@ -62,7 +63,7 @@ struct PopUpResult: View {
                         .padding(.bottom, 30)
                     
                     Text(message2)
-                        .font(.system(size: 24))
+                        .font(.system(size: 26))
                         .foregroundStyle(.white)
                         .bold()
                     
@@ -99,11 +100,12 @@ struct PopUpResult: View {
                 .padding()
             }
             .padding()
-            .offset(x: 0, y: isActive2 ? 0 : 1000)
+            
         }
         .ignoresSafeArea()
         .opacity(isActive2 ? 1 : 0)
-        .animation(.default, value: isActive2)
+        .animation(.easeInOut.speed(2), value: isActive2)
+        
     }
     
     func close() {
@@ -117,7 +119,7 @@ struct PopUpResult: View {
     PopUpResult(message: "Seu Pace Ideal é:",
         message1:"6'30''",
         message2:"""
-O sedentarismo está 
+O sedentarismo está
               na porta!
 """,
         isActive2: .constant(true),

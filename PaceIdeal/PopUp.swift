@@ -68,11 +68,10 @@ struct PopUp: View {
                 .padding()
             }
             .padding()
-            .offset(x: 0, y: isActive ? 0 : 1000)
         }
         .ignoresSafeArea()
         .opacity(isActive ? 1 : 0)
-        .animation(.default, value: isActive)
+        .animation(.easeInOut.speed(2), value: isActive)
     }
         
         func close() {
