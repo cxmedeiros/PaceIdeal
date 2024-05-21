@@ -11,14 +11,14 @@ struct ContentView: View {
     
     @State var isActive: Bool = false
     @State var isActive2: Bool = false
+    @State var selection1: String? = nil
+    @State var selection2: String? = nil
     @State var age: Int? = nil
     @State var weight: Int? = nil
     @State var height: Int? = nil
-    //@State var result: Int?
+    @State var result: Float?
     
     
-    @State var selection1: String? = nil
-    @State var selection2: String? = nil
     
     var body: some View {
         
@@ -88,7 +88,7 @@ struct ContentView: View {
                             DropDownPicker(
                                 selection: $selection1,
                                 state: .top,
-                                options: ["Maratona", "Lazer", "Saúde"], placeHolder: "Objetivo"
+                                options: Goal.allCases, placeHolder: "Objetivo"
                             )
                         }
                         
@@ -97,18 +97,19 @@ struct ContentView: View {
                                 .foregroundStyle(.button)
                                 .font(.text)
                             
-                            DropDownPicker(
+                            DropDownPickerRoutine(
                                 selection: $selection2,
                                 state: .top,
-                                options: ["2 ou menos dias por semana", "Entre 3 e 5 dias por semana", "Mais de 5 dias por semana"], placeHolder: "Rotina"
+                                options: Routine.allCases,
+                                placeHolder: "Rotina"
                             )
                         }
                     }
                 }
                 
-                
-                
-                Button{isActive2 = true} label: {
+                Button{
+                     processPace()
+                } label: {
                     ZStack {
                         Color(.button)
                         Text("Calcule o seu Pace!")
@@ -131,16 +132,54 @@ struct ContentView: View {
   *Exemplo:* Pace de 6’30’', significa que a pessoa gasta em média 6 minutos e 30 segundos para percorrer um quilômetro.
   """, isActive: $isActive)
             
+//            
             PopUpResult(
                 message: "Seu Pace Ideal é:",
-                message1:"6'30''",
-                message2:"Vamos melhorar?", isActive2: $isActive2
+                message1: stringPace(),
+                message2:"Vamos melhorar?", 
+                isActive2: $isActive2,
+                image: processImage()
             )
+            
         }
         .ignoresSafeArea()
+    }
+    
+    func processPace() {
         
+        let userParams = UserParameters (age: age ?? 0, weight: weight ?? 0, height: height ?? 0, goal: Goal(rawValue: selection1 ?? " ") ?? .saude, routine: Routine(rawValue: selection2 ?? " ") ?? .ruim)
+        
+        self.result = userParams.calculateResult()
+        
+        isActive2 = true
+    }
+    
+    func stringPace() -> String {
+        if let pace = result {
+            let minutes = Int(pace) // Obtém os minutos (parte inteira do resultado)
+            let seconds = Int((pace - Float(minutes)) * 60) // Obtém os segundos (parte decimal do resultado multiplicada por 60)
+            return  "\(minutes)'\(seconds)''"
+        } else {
+           return "0'00''"
+        }
+    }
+    
+    func processImage() -> ImageResource {
+        
+        if let pace = result {
+            if pace < 6.0 {
+                return .fastRunner
+            } else if pace >= 6.0 && pace < 8.0 {
+                return .tiredRunner
+            } else {
+                return .veryTiredRunner
+            }
+        } else {
+            return .veryTiredRunner
+        }
     }
 }
+
 
 #Preview {
     ContentView()

@@ -13,9 +13,10 @@ struct PopUpResult: View {
     var message: AttributedString
     var message1: AttributedString
     var message2: AttributedString
+    var image: ImageResource
     @Binding var isActive2: Bool
     
-    init(message: String, message1:String, message2: String, isActive2: Binding<Bool>) {
+    init(message: String, message1:String, message2: String, isActive2: Binding<Bool>, image: ImageResource) {
         self.message = try! AttributedString(
             markdown: message,
             options: AttributedString.MarkdownParsingOptions(interpretedSyntax: .inlineOnlyPreservingWhitespace)
@@ -28,8 +29,10 @@ struct PopUpResult: View {
             markdown: message2,
             options: AttributedString.MarkdownParsingOptions(interpretedSyntax: .inlineOnlyPreservingWhitespace)
         )
-
+        
         self._isActive2 = isActive2
+        
+        self.image = image
     }
     
     var body: some View {
@@ -54,8 +57,8 @@ struct PopUpResult: View {
                         .bold()
                         .foregroundStyle(.white)
                     
-                    Image(.verryTiredRunner)
-                        .padding(20)
+                    Image(image)
+                        .padding(10)
                     
                     Text(message2)
                         .font(.system(size: 24))
@@ -67,7 +70,7 @@ struct PopUpResult: View {
             }
             .fixedSize(horizontal: false, vertical: true)
             .padding(.top, 100)
-            .padding(.horizontal, 30)
+            .padding(.horizontal, 20)
             .padding(.bottom, 100)
             .background(.button)
             .clipShape(RoundedRectangle(cornerRadius: 15))
@@ -101,16 +104,19 @@ struct PopUpResult: View {
         .opacity(isActive2 ? 1 : 0)
         .animation(.default, value: isActive2)
     }
-        
+    
     func close() {
         isActive2 = false
     }
+    
 }
 
 
-#Preview {
-    PopUpResult(message: "Seu Pace Ideal é:",
-        message1:"6'30''",
-        message2:"Vamos melhorar?", isActive2: .constant(true)
-    )
-}
+//#Preview {
+//    PopUpResult(message: "Seu Pace Ideal é:",
+//        message1:"6'30''",
+//        message2:"Vamos melhorar?", 
+//        isActive2: .constant(true),
+//                image: .veryTiredRunner
+//    )
+//}

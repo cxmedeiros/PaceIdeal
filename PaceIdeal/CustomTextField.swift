@@ -31,6 +31,7 @@ struct CustomTextField: View {
                         .foregroundColor(.textDropDown)
                         .font(.textField)
                 )
+                .foregroundColor(.textSelect)
                 .padding(.vertical, 8)
                 .padding(.leading, 10)
                 .background(

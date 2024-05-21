@@ -1,25 +1,18 @@
 //
-//  DropDownPicker.swift
+//  DropDownPickerRoutine.swift
 //  PaceIdeal
 //
-//  Created by Camila Xavier de Medeiros on 15/05/24.
+//  Created by Camila Xavier de Medeiros on 20/05/24.
 //
 
 import Foundation
 import SwiftUI
 
-
-//direction of the dropdown menu
-enum DropDownPickerState {
-    case bottom
-    case top
-}
-
-struct DropDownPicker: View {
+struct DropDownPickerRoutine: View {
     
     @Binding var selection: String?
     var state: DropDownPickerState = .bottom
-    var options: [Goal]
+    var options: [Routine]
     
     @State var showDropdown = false
     let placeHolder: String
