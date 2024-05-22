@@ -26,6 +26,7 @@ struct ContentView: View {
         
         
         ZStack(alignment: .bottom) {
+            Color.white
                         
             ZStack(alignment: .top) {
                 Color.clear
@@ -144,6 +145,7 @@ struct ContentView: View {
             )
             
         }
+        
         .alert(titleFillFields, isPresented: $failedInput){
             Button("OK", role: .cancel, action: {})
         }
