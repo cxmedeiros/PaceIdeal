@@ -32,7 +32,6 @@ struct ContentView: View {
                 Color.clear
                 
                 HStack {
-                    
                     Image(.header)
                         .scaledToFit()
                     Spacer()
@@ -59,8 +58,8 @@ struct ContentView: View {
                     .foregroundColor(.button)
                     .font(.display)
                 
-                
             }
+            
             VStack (spacing: 45) {
                 
                 VStack (alignment:. leading, spacing: 30){
@@ -88,6 +87,7 @@ struct ContentView: View {
                             Text("Qual é o seu objetivo com a corrida?")
                                 .foregroundStyle(.button)
                                 .font(.text)
+                                .bold()
                             
                             DropDownPicker(
                                 selection: $selection1,
@@ -97,9 +97,11 @@ struct ContentView: View {
                         }
                         
                         VStack (alignment: .leading, spacing: 5) {
-                            Text("Sua rotina de exercicios aeróbicos é de:")
+                            Text("Sua rotina de exercicios aeróbicos é:")
                                 .foregroundStyle(.button)
                                 .font(.text)
+                                .bold()
+                                .lineLimit(0)
                             
                             DropDownPickerRoutine(
                                 selection: $selection2,
@@ -145,7 +147,6 @@ struct ContentView: View {
             )
             
         }
-        
         .alert(titleFillFields, isPresented: $failedInput){
             Button("OK", role: .cancel, action: {})
         }

@@ -23,6 +23,7 @@ struct CustomTextField: View {
                 Text(title)
                     .foregroundStyle(.button)
                     .font(.text)
+                    .bold()
                 TextField(
                     placeHolder,
                     value: $value,
