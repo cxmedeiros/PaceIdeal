@@ -24,8 +24,9 @@ struct ContentView: View {
     
     var body: some View {
         
+        
         ZStack(alignment: .bottom) {
-            
+                        
             ZStack(alignment: .top) {
                 Color.clear
                 
@@ -150,7 +151,14 @@ struct ContentView: View {
             Button("OK", role: .cancel, action: {})
         }
         .ignoresSafeArea()
+        .onTapGesture {
+            hideKeyboard()
+        }
     }
+    
+    func hideKeyboard() {
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        }
     
     func processPace() {
         
@@ -188,9 +196,9 @@ struct ContentView: View {
         if let pace = result {
             let minutes = Int(pace) // Obtém os minutos (parte inteira do resultado)
             let seconds = Int((pace - Float(minutes)) * 60) // Obtém os segundos (parte decimal do resultado multiplicada por 60)
-            return  "\(minutes)'\(seconds)''"
+            return "\(minutes)'\(String(format: "%02d", seconds))''"
         } else {
-           return "0'00''"
+            return "0'00''"
         }
     }
     

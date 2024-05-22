@@ -14,6 +14,7 @@
 		DA707CD72BF6E505004E81A9 /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA707CD62BF6E505004E81A9 /* PopUp.swift */; };
 		DA707CD92BF7DC70004E81A9 /* PopUpResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA707CD82BF7DC70004E81A9 /* PopUpResult.swift */; };
 		DA707CDB2BFBBFC8004E81A9 /* DropDownPickerRoutine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA707CDA2BFBBFC8004E81A9 /* DropDownPickerRoutine.swift */; };
+		DA707CDF2BFD4937004E81A9 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA707CDE2BFD4937004E81A9 /* Screen.swift */; };
 		DA8F0F802BEAAF860036F2DB /* PaceIdealApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F0F7F2BEAAF860036F2DB /* PaceIdealApp.swift */; };
 		DA8F0F822BEAAF860036F2DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F0F812BEAAF860036F2DB /* ContentView.swift */; };
 		DA8F0F842BEAAF880036F2DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8F0F832BEAAF880036F2DB /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		DA707CD62BF6E505004E81A9 /* PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
 		DA707CD82BF7DC70004E81A9 /* PopUpResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpResult.swift; sourceTree = "<group>"; };
 		DA707CDA2BFBBFC8004E81A9 /* DropDownPickerRoutine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownPickerRoutine.swift; sourceTree = "<group>"; };
+		DA707CDE2BFD4937004E81A9 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		DA8F0F7C2BEAAF860036F2DB /* PaceIdeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaceIdeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8F0F7F2BEAAF860036F2DB /* PaceIdealApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaceIdealApp.swift; sourceTree = "<group>"; };
 		DA8F0F812BEAAF860036F2DB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				DA707CD22BF539F1004E81A9 /* CustomTextField.swift */,
 				DA707CD62BF6E505004E81A9 /* PopUp.swift */,
 				DA707CD82BF7DC70004E81A9 /* PopUpResult.swift */,
+				DA707CDE2BFD4937004E81A9 /* Screen.swift */,
 				DA8F0F832BEAAF880036F2DB /* Assets.xcassets */,
 				DA8F0F852BEAAF880036F2DB /* Preview Content */,
 			);
@@ -163,6 +166,7 @@
 				DA707CD32BF539F1004E81A9 /* CustomTextField.swift in Sources */,
 				DA707CDB2BFBBFC8004E81A9 /* DropDownPickerRoutine.swift in Sources */,
 				DA707CD72BF6E505004E81A9 /* PopUp.swift in Sources */,
+				DA707CDF2BFD4937004E81A9 /* Screen.swift in Sources */,
 				DA8F0F802BEAAF860036F2DB /* PaceIdealApp.swift in Sources */,
 				DA707CD12BF539D2004E81A9 /* DropDownPicker.swift in Sources */,
 				DA707CCD2BF3D8AA004E81A9 /* StyleGuide.swift in Sources */,
@@ -300,6 +304,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PaceIdeal/Preview Content\"";
+				DEVELOPMENT_TEAM = 55NWM5F4XC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -328,6 +333,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PaceIdeal/Preview Content\"";
+				DEVELOPMENT_TEAM = 55NWM5F4XC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
