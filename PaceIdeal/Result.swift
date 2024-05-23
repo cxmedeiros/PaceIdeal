@@ -31,7 +31,7 @@ struct UserParameters {
     // Método para calcular o resultado baseado nos parâmetros
     func calculateResult() -> Float {
         
-        let BasicPace = 6.0
+        let BasicPace = 7.5
         let ageFactor: Float
         let weightFactor: Float
         let heightFactor: Float
