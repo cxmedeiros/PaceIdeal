@@ -82,7 +82,7 @@ struct PopUp: View {
 
 #Preview {
     PopUp(message: """
-          **Pace** é o ritmo médio de um corretor em determinado trajeto medido em minutos por quilômetro!
+          **Pace** é o ritmo médio de um corredor em determinado trajeto medido em minutos por quilômetro!
           
           *Exemplo:* Pace de 6’30’', significa que a pessoa gasta em média 6 minutos e 30 segundos para percorrer um quilômetro.
           """, isActive: .constant(true)
